@@ -1,0 +1,110 @@
+/* Existing styles... */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+}
+a{
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Distribute space evenly */
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    flex: 1; /* Allow items to grow equally */
+    text-align: center; /* Center the text */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Make the link fill the entire list item */
+    padding: 10px; /* Add padding for better click area */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.photo-gallery {
+    display: flex;
+    justify-content: space-around; /* Space out the images */
+    flex-wrap: wrap; /* Allow images to wrap to the next line */
+    margin-top: 20px; /* Add some space above the gallery */
+}
+
+.photo-gallery img {
+    width: 30%; /* Set the width of each image */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px; /* Add some margin around images */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#volunteer {
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 170px;
+}

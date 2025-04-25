@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ganga River Pollution Map</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    .legend {
+      background: white;
+      padding: 10px;
+      line-height: 1.5;
+    }
+    nav {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+}
+a{
+    text-decoration: none;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Use Flexbox */
+    justify-content: space-around; /* Distribute space evenly */
+    margin: 0; /* Remove default margin */
+}
+
+nav ul li {
+    flex: 1; /* Allow items to grow equally */
+    text-align: center; /* Center the text */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: block; /* Make the link fill the entire list item */
+    padding: 10px; /* Add padding for better click area */
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="project.html">AI-Based Pollution Monitor</a></li>
+            <li><a href="funds.html">Finance Section</a></li>
+            <li><a href="map.html">pH Map</a></li>
+            <li><a href="volunteer.html">Volunteer Section</a></li>
+        </ul>
+    </nav>
+  <div id="map"></div>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+  <script>
+    // Initialize map
+    const map = L.map('map').setView([25.3, 83.0], 6); // Centered around Varanasi
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Sample pollution hotspots (simulated)
+    const pollutionSpots = [
+      {
+        name: "Kanpur",
+        coords: [26.4499, 80.3319],
+        pollutionLevel: "High"
+      },
+      {
+        name: "Varanasi",
+        coords: [25.3176, 82.9739],
+        pollutionLevel: "High"
+      },
+      {
+        name: "Patna",
+        coords: [25.5941, 85.1376],
+        pollutionLevel: "Moderate"
+      },
+      {
+        name: "Kolkata",
+        coords: [22.5726, 88.3639],
+        pollutionLevel: "Moderate"
+      }
+    ];
+
+    // Add markers to the map
+    pollutionSpots.forEach(spot => {
+      let color = spot.pollutionLevel === "High" ? "red" : "orange";
+      const marker = L.circleMarker(spot.coords, {
+        color: color,
+        radius: 10,
+        fillOpacity: 0.7
+      }).addTo(map);
+      marker.bindPopup(`<b>${spot.name}</b><br>Pollution Level: ${spot.pollutionLevel}`);
+    });
+  </script>
+</body>
+</html>
